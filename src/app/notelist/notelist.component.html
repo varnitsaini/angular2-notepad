@@ -1,0 +1,16 @@
+
+<div class="list-group" style="max-height: 570px; overflow-y: scroll" #noteListDiv>
+  <a class="list-group-item notelist-item-wrap new-note" (click)="newNote()">New Note</a>
+  <a *ngFor="let note of noteList"
+     (click)="onSelect(note)"
+     [class.active]="note === selectedNote"
+     class="list-group-item ">
+    <div class="notelist-item-wrap">
+      <b>{{note.id}}. {{note.name}}</b>
+    </div>
+
+    <div class="notelist-item-wrap">
+      {{note.content}}
+    </div>
+  </a>
+</div>

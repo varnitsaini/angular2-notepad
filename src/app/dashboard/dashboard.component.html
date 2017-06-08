@@ -1,0 +1,12 @@
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <app-notepad [selectedNote]="selectedNote"></app-notepad>
+    </div>
+    <div class="col-sm-4">
+      <app-notelist [noteList]="noteList" (noteClicked)="getCheckedNote($event)"></app-notelist>
+    </div>
+  </div>
+</div>

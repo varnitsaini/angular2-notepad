@@ -1,0 +1,13 @@
+.notelist-item-wrap{
+    cursor:pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.new-note{
+    font-weight: bold;
+    font-size: 15px;
+    color: inherit;
+    color: #337AB7;
+}

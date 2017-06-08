@@ -1,0 +1,7 @@
+
+<div class="row">
+    <div class="col-xs-2">Note Title</div>
+    <div class="col-xs-4"><input #noteName class="form-control" (input)="selectedNote.name = noteName.value" [value]="selectedNote?.name"></div>
+</div>
+<br>
+<textarea #noteContent (input)="selectedNote.content = noteContent.value" class="form-control" rows="25" style="width: 100%" [value]="selectedNote?.content" ></textarea>
