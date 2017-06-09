@@ -1,5 +1,5 @@
 import {
-  AfterViewChecked, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output,
+ Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
   ViewChild
 } from '@angular/core';
 import {Note} from '../note';
@@ -12,7 +12,8 @@ import {Router} from '@angular/router';
   templateUrl: './notelist.component.html',
   styleUrls: ['./notelist.component.css']
 })
-export class NotelistComponent implements OnInit, OnChanges, AfterViewChecked {
+export class NotelistComponent implements OnInit, OnChanges {
+
 
   @ViewChild('noteListDiv') private scrollContainer: ElementRef;
   @Input() noteList: Note[];
@@ -25,23 +26,19 @@ export class NotelistComponent implements OnInit, OnChanges, AfterViewChecked {
 
   ngOnInit() {
   }
-  ngOnChanges() {
+  ngOnChanges(change: SimpleChanges): void {
     if (this.noteList) {
       this.onSelect(this.noteList[0]);
     }
-
-  }
-  ngAfterViewChecked() {
-    // this.scrollToBottom();
   }
   newNote() {
+    this.scrollToBottom();
     this.note = new Note;
     this.note.id = this.noteList.length + 1;
-    this.note.name = 'New Note ' + this.note.id;
+    this.note.name = 'New Note ';
     this.note.content = 'New Note Content';
     this.noteList.push(this.note);
     this.onSelect(this.note);
-    this.scrollToBottom();
   }
 
   onSelect(note: Note): void {
@@ -54,5 +51,8 @@ export class NotelistComponent implements OnInit, OnChanges, AfterViewChecked {
       this.scrollContainer.nativeElement.scrollTop = this.scrollContainer.nativeElement.scrollHeight;
     } catch (err) {
     }
+  }
+  removeNote(note: Note) {
+    this.noteList = this.noteList.filter(item => item.id !== note.id);
   }
 }

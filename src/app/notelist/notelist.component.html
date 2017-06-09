@@ -6,11 +6,13 @@
      [class.active]="note === selectedNote"
      class="list-group-item ">
     <div class="notelist-item-wrap">
-      <b>{{note.id}}. {{note.name}}</b>
+      <b>{{note.name}}</b>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="removeNote(note)"><span aria-hidden="true">&times;</span></button>
     </div>
 
     <div class="notelist-item-wrap">
       {{note.content}}
     </div>
+
   </a>
 </div>
