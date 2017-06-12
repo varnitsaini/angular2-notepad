@@ -1,6 +1,6 @@
 # Notepad
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
+This project contains a simple notepad application made with angularjs. This project used in memory data service to immitate real time API data from the server of user notes. 
 
 ## Development server
 
